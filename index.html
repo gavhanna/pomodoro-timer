@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <h1 id="title">Pomodoro
+          <span>Taste the tomato flavoured rainbow!</span>
+        </h1>
+      
+        <div id="timerContainer">
+          <div id="timerCircle">
+            <h3 id="current-title">Click to start</h3>
+            <span id="timer">
+              <span id="minutes"></span>:<span id="seconds">00</span>
+            </span>
+            <span id="startPause">Click to Play/Pause</span>
+          </div>
+        </div>
+        <div id="counters">
+          <span id="break">
+            <button data-type="decrement" data-timer="break" id="breakMinus">-</button>
+            <span id="breakTime"></span>
+          <span class="description">Break Length</span>
+          <button data-type="increment" data-timer="break" id="breakPlus">+
+            </button>
+          </span>
+          <!-- <button id="reset">Reset Timers</button> -->
+          <span id="work">
+            <button data-type="decrement" data-timer="work" id="workMinus">-</button>
+            <span id="workTime"></span>
+          <span class="description">Work Length</span>
+          <button data-type="increment" data-timer="work" id="workPlus">+
+            </button>
+          </span>
+        </div>
+        <span id="controls">
+          <!-- <button class="roundyCorners" id="start">Start</button> -->
+          <a id="restart" href="index.html">Restart App</a>
+        </span>
+      </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>

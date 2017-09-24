@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #FCFBE3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  color: black;
+}
+
+.roundyCorners {
+  border-radius: 20px;
+}
+
+#wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+  font-family: 'Montserrat', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#title {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  margin: 20px auto;
+  color: black;
+  font-size: 4rem;
+  font-weight: lighter;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  border-radius: 30px;
+  padding: 0px 20px;
+  position: relative;
+}
+#title span {
+  font-size: 1rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+}
+
+button {
+  font-size: 2rem;
+  border: 0px;
+  background-color: transparent;
+}
+
+#counters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+}
+#counters span,
+#counters button {
+  margin: 10px;
+  color: #000;
+}
+#counters button {
+  color: #000;
+  cursor: pointer;
+}
+
+#breakTime,
+#workTime {
+  font-size: 2rem;
+}
+
+#break,
+#work {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-radius: 20px;
+  position: relative;
+}
+
+.description {
+  position: absolute;
+  font-size: 0.8rem;
+  width: 100%;
+  bottom: -10px;
+  left: -5px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#timerContainer {
+  cursor: pointer;
+  border: 8px solid #000;
+  border-top: 8px solid #000;
+  border-bottom: 8px solid #000;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+#timerContainer:hover {
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+#timerCircle {
+  position: relative;
+  background: radial-gradient(ellipse at center, #fcfbe3 1%, #ff0000 100%);
+  cursor: pointer;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+#timerCircle h3 {
+  font-family: Lobster;
+  font-weight: lighter;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12%;
+  text-align: center;
+}
+#timerCircle #timer {
+  cursor: pointer;
+  margin-top: 10%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+  font-size: 5.5rem;
+}
+
+#startPause {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  text-align: center;
+  visibility: hidden;
+}
+
+#controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+#controls button {
+  margin: 10px auto;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#controls #restart {
+  text-decoration: none;
+  color: black;
+  border: 2px solid tomato;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 0.8rem;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  width: 100px;
+}
+#controls #restart:hover {
+  background: tomato;
+  border: 2px solid black;
+  width: 120px;
+  border-radius: 0;
+}
