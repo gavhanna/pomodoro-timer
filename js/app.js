@@ -7,6 +7,7 @@
   let timerInterval;
   let workTimerActive = true;
   let timerActive = false;
+  const restartButton = document.getElementById("restart");
   const startPause = document.getElementById("startPause");
   const title = document.getElementById("current-title");
   const breakTime = document.getElementById("breakTime");
@@ -18,8 +19,9 @@
   const timerCircle = document.getElementById("timerCircle");
   const counters = document.getElementById("counters");
   const bell = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
-
-
+  const workBackground = "radial-gradient(ellipse at center, #fcfbe3 1%, #ff0000 100%)";
+  const pausedBackground = "radial-gradient(ellipse at center, #fcfbe3 1%, #ECF802 100%)";
+  const breakBackground = "radial-gradient(ellipse at center, #fcfbe3 1%, #02AD0B 100%)";
 
   breakTime.innerText = breakLength;
   workTime.innerText = workLength;
@@ -30,7 +32,7 @@
   workMinus.addEventListener("click", timeChange, false);
   workPlus.addEventListener("click", timeChange, false);
   timerCircle.addEventListener("click", startTimer, false);
-  
+  restartButton.addEventListener("click", restartApp, false);
   
   function timeChange(e) {
     if (e.target.dataset.timer === "break") {
@@ -63,24 +65,25 @@
     startPause.style.visibility = "visible";
     if (timerPaused) {
       startPause.innerText = "Click to resume";
-      timerCircle.style.background = "radial-gradient(ellipse at center, #fcfbe3 1%, #ECF802 100%)";
+      title.innerText = "Paused"
+      timerCircle.style.background = pausedBackground;
     } else {
       startPause.innerText = "Click to pause";
-      timerCircle.style.background = "radial-gradient(ellipse at center, #fcfbe3 1%, #ff0000 100%)";
+      title.innerText = workTimerActive === true ? "Work" : "Break";
+      timerCircle.style.background = workBackground;
     }
 
     if (!timerActive) {
       if (workTimerActive) {
-        timerCircle.style.background = "radial-gradient(ellipse at center, #fcfbe3 1%, #ff0000 100%)";
+        timerCircle.style.background = workBackground;
         currentMins = workLength;
         currentSecs = 0;
         timerInactive = false;
         title.innerText = "Work!";
-        console.log("Got this far");
         timerActive = true;
         timerPaused = false;
       } else {
-        timerCircle.style.background = "radial-gradient(ellipse at center, #fcfbe3 1%, #02AD0B 100%)";
+        timerCircle.style.background = breakBackground;
         currentMins = breakLength;
         currentSecs = 0;
         title.innerText = "Break Time!"
@@ -116,9 +119,24 @@
         }, 1000);
       }
     }
-    
-    console.log(workTimerActive, timerActive);
-    
+  }
+
+  function restartApp() {
+    clearInterval(timerInterval);
+    workLength = 25;
+    breakLength = 5;
+    timerPaused = true;
+    currentMins = workLength;
+    currentSecs = 0;
+    workTimerActive = true;
+    timerActive = false;
+    counters.style.display = "flex";
+    breakTime.innerText = breakLength;
+    workTime.innerText = workLength;
+    minuteDisplay.innerText = workLength;
+    secondDisplay.innerText = "00";
+    timerCircle.style.background = workBackground; 
+    title.innerText = "Click to start"
   }
 
 
